@@ -1,0 +1,38 @@
+{
+  "beers": [
+    {
+      "id": 1,
+      "name": "Oh So Flattening",
+      "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+      "image_url": "https://i.ibb.co/wQ4G0w1/flatiron-brew.png",
+      "reviews": [
+        "It's flat! Just the way I like it!!",
+        "Is this the real beer, is this just fantasy?",
+        "I've always hated bubbles going up my nose, so this is absolutely delightful.",
+        "Flat straight out of the bottle! No more waiting for the fizziness to subside. Thank you FlattaBeer!! I love you!!!"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pilsen Lager",
+      "description": "Our Unleash the Yeast series was an epic experiment into the differences in aroma and flavour provided by switching up your yeast. We brewed up a wort with a light caramel note and some toasty biscuit flavour, and hopped it with Amarillo and Centennial for a citrusy bitterness. Everything else is down to the yeast. Pilsner yeast ferments with no fruity esters or spicy phenols, although it can add a hint of butterscotch.",
+      "image_url": "https://images.punkapi.com/v2/4.png",
+      "reviews": [
+        "Spicy crab cakes, say what?!",
+        "My mum hates it"
+      ]
+    },
+    {
+      "image_url": "data:image/jpeg;base64,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",
+      "name": "Tusker Light",
+      "description": "Not Good while programming",
+      "id": 3
+    },
+    {
+      "image_url": "",
+      "name": "",
+      "description": "",
+      "id": 4
+    }
+  ]
+}
