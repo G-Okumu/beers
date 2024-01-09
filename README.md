@@ -9,6 +9,7 @@
 <li>Basic fetch</li>
 <li>Basic posting of data to server</li>
 <li>Mocking server using json-server</li>
+<li>Using Tailwind css</li>
 </ul>
 
 # License
