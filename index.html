@@ -1,29 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Bears</title>
-</head>
-<body>
-    <h1>My Lovely Beers</h1>
-
-
-    <div id="card-container">
-    </div>
-
-    <h2 id="name2"></h2>
-
-    <form id="form" method="post">
-        <input type="text" name="image_url" value="" placeholder="Enter image url"/>
-        <input type="text" name="name" value="" placeholder="Enter name"/>
-        <input type="text" name="description" value="" placeholder="Enter description"/>
-
-        <button type="submit">Submit</button>
-
-    </form>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="index.js"></script>
+
+
+    <title>Beers</title>
+
+</head>
+
+<body>
+
+
+    <nav
+        class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="geobeer" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="data:image/jpeg;base64,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"
+                    class="w-10 h-10 rounded-full shadow-lg" alt="Beer">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Geo Beer</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
+                    started</button>
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Shop</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Beer
+                            Club</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="card-container" class="mt-20 grid md:grid-cols-4 grid-cols-2 mx-20 gap-4">
+
+    </div>
+
+    <div id="singleBeer">
+
+    </div>
+
+    <section class="mt-8 mx-10">
+        <h1 class="text-center text-blue-500">Add New Beer</h1>
+        <form id="form" method="post" class="w-full max-w-sm">
+            <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                  <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                    Beer Name
+                  </label>
+                </div>
+                <div class="md:w-2/3">
+                  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" name="name" value="" >
+                </div>
+              </div>
+              <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                  <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                    Image URL
+                  </label>
+                </div>
+                <div class="md:w-2/3">
+                  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" name="image_url" value="">
+                </div>
+              </div>
+
+              <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                  <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                    Description
+                  </label>
+                </div>
+                <div class="md:w-2/3">
+                  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" name="description" value="">
+                </div>
+              </div>
+              
+              <div class="md:flex md:items-center">
+                <div class="md:w-1/3"></div>
+                <div class="md:w-2/3">
+                  <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </div>
+    
+        </form>
+    </section>
+
 </body>
+
 </html>
